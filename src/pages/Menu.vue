@@ -37,66 +37,7 @@
 
 
 
-  <div class="menu">
-
-    
-    <div class="categoria">
-      <a href="" >PIZZE SPECIALI</a>
-    </div>
-    <div class="product-cont">
-      <div
-      class="product"
-      :key="index"
-      v-for="(item, index) in arrPizzaSp"
-      >
-          <img class="img" :src="state.getImageUrl(item.image)">
-          <div class="text-c">
-            <div class="title">{{item.name}}</div>
-            <div class="sub-title">INGREDIENTI</div>
-            <div class="text">({{ item.ingredienti }})</div>
-            <div class="price">TODO€</div>
-          </div>
-      </div>
-    </div>
-    <div class="categoria">
-      <a href="" >PIZZE ROSSE</a>
-    </div>
-    <div class="product-cont">
-      <div
-      class="product"
-      :key="index"
-      v-for="(item, index) in state.fakemenu[1]"
-      >
-          <img class="img" src="../assets/img/pizza-alto.png">
-          <div class="text-c">
-            <div class="title">{{item.titolo}}</div>
-            <div class="sub-title">INGREDIENTI</div>
-            <div class="text">({{ item.ingredienti }})</div>
-            <div class="price">{{ item.prezzo }}</div>
-          </div>
-      </div>
-    </div>
-    <div class="categoria">
-      <a href="" >PIZZE BIANCHE</a>
-    </div>
-    <div class="product-cont extended">
-      <div
-      class="product"
-      :key="index"
-      v-for="(item, index) in state.fakemenu[2]"
-      >
-          <img class="img" src="../assets/img/pizza-alto.png">
-          <div class="text-c">
-            <div class="title">{{item.titolo}}</div>
-            <div class="sub-title">INGREDIENTI</div>
-            <div class="text">({{ item.ingredienti }})</div>
-            <div class="price">{{ item.prezzo }}</div>
-          </div>
-      </div>
-    </div>
-
-
-  </div>
+ 
 </template>
 
 <style scoped lang="scss">

@@ -14,19 +14,7 @@
 <template>
   <div class="footer-container">
     <div class="footer">
-      <div class="side-feature">
-        <div class="top-s">
-          <img src="../assets/img/maps.png" alt="img">
-          <span>Dove puoi trovarci</span>
-        </div>
-        <div class="main-s">
-          <div class="hidden-content">
-            <ul>
-              <li>Borghetto | via borghetto 69</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+
 
       <div class="card">
       <a class="socialContainer containerOne" href="#">
@@ -42,73 +30,19 @@
       </a>
       </div>
 
-      <div class="side-feature time">
-        <div class="top-s">
-          <div class="clock">
-            <div class="min"></div>
-            <div class="sec"></div>
-          </div>
-          <span>Orari d'apertura</span>
-        </div>
-        <div class="main-s">
-          <div class="hidden-content">
-            <ul>
-              <li>
-                <span>lun:</span>
-                <span>chiusi</span>
-              </li>
-              <li>
-                <span>mar-dom:</span>
-                <span>16:00 - 22:00</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>             
+            
     </div>
 
     <div class="bottom-footer">
-      <p>P.IVA:123123123123123123</p>
+      <p>Made by Boolean Student's </p>
     </div>
     
     <div 
     :class="state.sideMenuValue ?  'footer-on' : 'footer-off' ">
       
-    <div class="side-feature on">
-      <div class="top-s">
-        <img src="../assets/img/maps.png" alt="img">
-      </div>
-      <div class="main-s">
-        <div class="hidden-content">
-          <ul>
-            <li>Borghetto | via borghetto 69</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+   
 
-    <div class="side-feature on time">
-      <div class="top-s">
-        <div class="clock">
-          <div class="min"></div>
-          <div class="sec"></div>
-        </div>
-      </div>
-      <div class="main-s">
-        <div class="hidden-content">
-          <ul>
-            <li>
-              <span>lun:</span>
-              <span>chiusi</span>
-            </li>
-            <li>
-              <span>mar-dom:</span>
-              <span>16:00 - 22:00</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+
 
     </div>
   </div>
