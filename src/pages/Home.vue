@@ -13,7 +13,7 @@ export default {
     }
   },
   created() {
-        // this.getRestaurants();
+        this.getRestaurants();
         this.getCategories();
 
   },
@@ -38,8 +38,8 @@ export default {
             }
             
 
-        axios.get(this.state.baseUrl + '/restaurants')
-        .then (response=>{this.arrCategories=response.data.restaurants})
+        axios.get(this.state.baseUrl + '/restaurants',{})
+        .then (response=>{this.arrRestaurants=response.data.restaurants})
 },
 
   },
@@ -53,6 +53,16 @@ export default {
       {{ item.title }}
     </div>
   </div>
+  <hr>
+  <h2>
+    Ristoranti (non compare nulla se non ne crei uno dal back)
+  </h2>
+  <div v-for="item in arrRestaurants" :key="item.id">
+    <div>
+      {{ item.activity_name }}
+    </div>
+  </div>
+
 
 
    
