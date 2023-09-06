@@ -1,8 +1,9 @@
 import { reactive } from 'vue';
 
+
 export const state = reactive({
     sideMenuValue: 0,
-    baseUrl: 'http://127.0.0.1:8000/',
+    baseUrl: 'http://127.0.0.1:8000/api',
     getImageUrl(image) {
 		return image
 			? this.baseUrl + 'storage/' + image

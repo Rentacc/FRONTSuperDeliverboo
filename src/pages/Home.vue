@@ -1,19 +1,59 @@
-<script >
-  import {state} from '../state.js'
+<script>
+import axios from 'axios';
+import { state } from '../state';
+export default {
+  
+  data() {
+    return {
+        state,
+        arrCategories: [],
+        arrRestaurants: [],
+        selectedCategories: [],
 
-  export default {
+    }
+  },
+  created() {
+        // this.getRestaurants();
+        this.getCategories();
 
-
-    data(){
-        return{     
-            state,
+  },
+  watch: {
+        selectedCategories: {
+            handler: "getRestaurants",
+            deep: true
         }
     },
+  methods: {
+    getCategories() {
+        axios.get(this.state.baseUrl + '/categories',{})
+        .then (response=>{this.arrCategories=response.data.categories});
+    },
+    getRestaurants() {
 
-  }
+        const params = {}
+        const id = {}
+
+        if (this.selectedCategories.length > 0) {
+                params.category_id = this.selectedCategories.join(',')
+            }
+            
+
+        axios.get(this.state.baseUrl + '/restaurants')
+        .then (response=>{this.arrCategories=response.data.restaurants})
+},
+
+  },
+}
+
 </script>
 
 <template>
+  <div v-for="item in arrCategories" :key="item.id">
+    <div>
+      {{ item.title }}
+    </div>
+  </div>
+
 
    
 
@@ -21,6 +61,9 @@
 
 <style scoped lang="scss">
 @use '../assets/styles/general.scss' as *;
+div {
+  color:white;
+}
 
  //controllare in src/assets/styles/partials/variables.scss
 
