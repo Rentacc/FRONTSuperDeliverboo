@@ -8,34 +8,115 @@
     data(){
         return{     
             state,
-            arrProduct:[],
-            arrPizzaSp:[],
-            arrPizzaR:[],
-            arrPizzaB:[],
+            arrCart:[],
+            totcart: 0,
+            
         }
     },
     methods:{
-      getProduct(){
-        axios
-				.get(state.baseUrl + 'api/projects', {
-					params: {
-						category: this.categoryId,
-					},
-				})
-				.then(response => {
-					this.arrPizzaSp = response.data.results;
-				});
+      nwItem(title, counter, tprice) {
+        let newitem={
+          title,
+          counter,
+          totprice: tprice,
+        }
+        return newitem;
       }
+      ,
+      addItemToArrCart(t, n, tp){
+        let newitem= this.nwItem(t, n, tp);
+        let checkIsSet = false;
+        this.arrCart.forEach(element => {
+          if(element.title == newitem.title){ checkIsSet = true }
+        });
+
+        if(checkIsSet){
+          this.arrCart.forEach(element => {
+            if(element.title == newitem.title){
+            
+            element.counter += newitem.counter;
+
+            element.totprice += newitem.totprice
+          }
+          });  
+        }else{
+          this.arrCart.push(newitem);
+        }
+        this.arrCart.forEach(element => {
+          console.log(element)
+        });
+      },
+      totprice(n,p){
+        let mult =  parseInt(n) * parseInt(p);
+        return mult;
+      },
+      getTotCart(){
+        let total=0;
+        this.arrCart.forEach(element => {
+          total += element.totprice
+        });
+        return total
+      },
+      deleteItemToCart(item){
+        let newarrCart = this.arrCart.filter((element) => {
+          return element.title !== item;
+        });
+        this.arrCart=[];
+        this.arrCart = newarrCart;
+        this.arrCart.forEach(element => {
+          console.log(element)
+        });
+
+      }
+
+      
     },
     created(){
-      this.getProduct();
+      
     }
   }
 </script>
 
 <template>
 
+ <div class="menu">
+  <div class="item" v-for="(item, index) in state.fakemenu[1]" :key="index">
+    <h5>{{ item.titolo }}</h5>
+    <span>{{ item.prezzo }}</span>
+    
+    <button @click="addItemToArrCart(item.titolo, 1, totprice(1, item.prezzo))" > AGGIUNGI </button>
 
+  </div>
+
+  <!-- con contatore -->
+ <!-- <div class="menu">
+  <div class="item" v-for="(item, index) in state.fakemenu[1]" :key="index">
+    <h5>{{ item.titolo }}</h5>
+    <span>{{ item.prezzo }}</span>
+     <input class="counter" type="number" :name="item.counter" :id="item.counter+item.titolo" v-model="item.counter" >
+    <button @click="addItemToArrCart(item.titolo, item.counter, totprice(item.counter, item.prezzo))" > AGGIUNGI </button>
+
+  </div> -->
+
+</div>
+
+
+<div class="cart">
+  <div v-for="(item, index) in arrCart" >
+    <div class="row">
+      <h3>{{ item.title }}</h3>
+    <h4>€{{ item.totprice }}</h4>
+    <span>{{ item.counter }}</span>
+    <button @click="deleteItemToCart(item.title)"> elimina </button>
+    </div>
+    
+  </div>
+  <div class="total">
+    il totale è: €
+    {{getTotCart()}}
+  </div>
+
+</div>
 
  
 </template>
@@ -44,189 +125,29 @@
 @use '../assets/styles/general.scss' as *;
 
 .menu{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 1150px;
-  padding: 1em;
-
-}
-.extended{
-  height: 650px!important;
-}
-.product-cont{
-  max-width: 1150px;
-  width: 100%;
-  margin: 0 auto;
-  height:580px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  @include dfc;
   gap: 1rem;
-  z-index: 1!important;
-  .product{
+  flex-wrap: wrap;
+  margin: 2rem;
+  .item{
+    @include dfc;
+    gap: 1rem;
+    border: 2px solid rgb(214, 214, 214);
+    padding: 1rem;
+  }
+  .cart{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 2rem;
+
+
+    
+  }
+}
+.row{
       display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      width: 350px;
-      background-color: rgba(29, 24, 24, 0.637);
-      padding: 5px;
-      border-radius: 10px;
-      z-index: 1!important;
-      
-      .img{
-        align-self: center;
-        width: 129px;
-        height: 129px;
-        background-size: cover;
-        background-position: center;
-        border-radius: 220px;
-        border: 3px solid rgba(0, 0, 0, 0.435);
-        flex-shrink: 0;
-        
-      }
-      .text-c{
-        gap: .3em;
-        flex-shrink: 1;
-        color: $c-white;
-        @include dfj;
-        flex-direction: column;
-        text-shadow: 1.5px 1.5px 1.5px black;
-        .title{
-          font-size: 1.5em;
-          text-shadow: 3px 3px 3px black;
-        }
-        .sub-title, .text{
-          color: $c-white-op-max;
-        }
-      }
+      justify-content: space-between;
+      border: 2px white solid;
     }
-    .product{
-     flex-direction: row-reverse;
-  }
-}
-
-.categoria{
-  font-size: 50px;
-  text-align: center;
-  width: 100%;
-  padding: 0rem;
-  margin-bottom: 1rem ;
-  a{
-    color: $c-white;
-    text-shadow: 1.5px 3.5px 5px black;
-
-  }
-}
-
-
-
-
-
-@media (max-width:1230px) {
-  
-  .menu{
-    align-items: center;
-    width: 920px;
-  }
-  .product-cont{
-    width: 720px;
-    height: 800px;
-  }
-  .extended{
-    height: 950px!important;
-  }
-
-}
-
-@media (max-width:980px) {
-  
-  .menu{
-    width: 730px;
-  }
-  .product-cont{
-    width: 720px;
-    height: 800px;
-  }
-
-
-}
-
-@media (max-width:810px) {
-  
-  .menu{
-    width: 720px;
-  }
-  .product-cont{
-    width: 700px;
-    height: 1100px;
-    .product{
-      flex-direction: column;
-      width: 180px;
-    }
-  }
-  .extended{
-    height: 1500px!important;
-  }
-
-}
-@media (max-width:790px) {
-  .menu{
-    width: 600px;
-  }
-  .product-cont{
-    width: 550px;
-    height: 1150px;
-    .product{
-      width: 170px;
-    }
-  }
- 
-
-}
-@media (max-width:650px) {
-  .menu{
-    width: 360px;
-  }
-  .product-cont{
-    
-    width: 350px;
-    height: 1500px;
-  }
-  .extended{
-    height: 2000px!important;
-  }
- 
-}
-@media (max-width:520px) {
-  .menu{
-    width: 410px;
-    margin: 0 auto;
-  }
- 
-}
-@media (max-width:410px) {
-  .menu{
-    width: 320px;
-  }
-  .product-cont{
-    
-    width: 300px;
-    height: 1550px;
-    .product{
-      width: 140px;
-      .text-c{
-
-        font-size: 14px!important;
-      }
-      .title{
-        font-size: 19px!important;
-      }
-    }
-  }
-  .extended{
-    height: 2000px!important;
-  }
-}
 </style>
