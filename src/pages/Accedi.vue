@@ -16,10 +16,7 @@
 <template>
   <div class="about">
     
-    <h1>La nostra app è stata creata per offrire la comodità di ordinare cibo dalla vivace scena culinaria di Trieste direttamente a casa propria, specialmente durante la pandemia di COVID-19. Creiamo opportunità lavorative per rider e personale di supporto, semplificando l'esperienza di ordinazione e consegna con un'interfaccia user-friendly e consegne veloci, migliorando così la vita dei residenti di Trieste.</h1>
-
-   
-
+    <h1>suca</h1>
 
   </div>
 </template>

@@ -34,8 +34,8 @@
           <!-- <p class="special"><span> <router-link :to="{ name: 'menu' }" class="nav-link active active-p" >Menu</router-link> </span></p> -->
             <p><span> <router-link :to="{ name: 'menu' }" class="nav-link active active-p" >menu-ristorante</router-link> </span></p>
             <p><span> <router-link :to="{ name: 'home' }" class="nav-link active active-p" >home</router-link> </span></p>
-            <p><span> <router-link :to="{ name: 'chi-siamo' }" class="nav-link active active-p" >chi siamo?</router-link> </span></p>
-            <p><span> <router-link :to="{ name: 'contatti' }" class="nav-link active active-p" >contatti</router-link> </span></p>
+            <p><span> <a href="{{ state.baseUrl }}"></a>Accedi</span></p>
+            <p><span> <a href="{{ state.baseUrl }}"></a>Registrati </span></p>
         </div>
         <div @click="openSide" :class="state.sideMenuValue ?  'burger-off' : 'burger-on'">
             <span id="s-1"></span>
@@ -48,8 +48,8 @@
               <span @click="openSide"> <router-link :to="{ name: 'home' }" class="nav-link active" >home</router-link> </span>
               <span @click="openSide"> <router-link :to="{ name: 'menu' }" class="nav-link active" >menu</router-link> </span>
 
-              <span @click="openSide"> <router-link :to="{ name: 'chi-siamo' }" class="nav-link active" >chi siamo?</router-link> </span>
-              <span @click="openSide"> <router-link :to="{ name: 'contatti' }" class="nav-link active" >contatti</router-link> </span>
+              <span @click="openSide"> <a href="{{ state.baseUrl + '/login'}}"></a>  </span>
+              <span @click="openSide"><a href=" {{ state.baseUrl + '/register' }}"></a> </span>
             </div>
         </div>
 </template>
