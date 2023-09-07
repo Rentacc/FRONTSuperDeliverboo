@@ -24,7 +24,9 @@
 <style lang="scss">
 @use './assets/styles/general.scss' as *;
 body{
-  background-color: black;
+  background-image:url('https://img.freepik.com/free-photo/top-view-arrangement-with-notebook-pizza-boxes_23-2148247886.jpg?w=996&t=st=1694013044~exp=1694013644~hmac=4a620423c6d6ff12850eec5512ccd37140026732b82891d79ecf52d372bfc1bb');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 

@@ -98,7 +98,7 @@
   min-height: 4vh;
   @include dfc;
   padding: 1em;
-  background-color: $c-b-footer;
+  background-color: rgb(12, 12, 60);
   color: $c-white;
 }
 
@@ -196,13 +196,12 @@
         justify-self: center;
         width: fit-content;
         height: fit-content;
-        background-color: $c-white-op-med;
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 12px;
         gap: 20px;
-        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.935);
+       
         }
 
         /* for all social containers*/
@@ -210,7 +209,7 @@
         width: 52px;
         height: 52px;
         border-radius: 50%;
-        background-color: rgb(44, 44, 44);
+        background-color:#0c0c3c;
         display: flex;
         align-items: center;
         justify-content: center;

@@ -53,10 +53,13 @@ export default {
       {{ item.title }}
     </div>
   </div>
-  <hr>
-  <h2>
-    Ristoranti (non compare nulla se non ne crei uno dal back)
+  
+  <div class="card-home">
+    <h2>
+    La nostra app è stata creata per offrire la comodità di ordinare cibo dalla vivace scena culinaria di Trieste direttamente a casa propria, specialmente durante la pandemia di COVID-19. Creiamo opportunità lavorative per rider e personale di supporto, semplificando l'esperienza di ordinazione e consegna con un'interfaccia user-friendly e consegne veloci, migliorando così la vita dei residenti di Trieste
   </h2>
+  </div>
+
   <div v-for="item in arrRestaurants" :key="item.id">
     <div>
       {{ item.activity_name }}
@@ -75,6 +78,16 @@ div {
   color:white;
 }
 
+.card-home{
+  background-color: white;
+  border-radius: 20px;
+  opacity: 85%;
+  height: 200px;
+  h2{
+    color: rgb(20, 20, 104);
+    margin-top: 20px;
+  }
+}
  //controllare in src/assets/styles/partials/variables.scss
 
 

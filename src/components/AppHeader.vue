@@ -26,16 +26,16 @@
 
     <div class="jumbo">
         <div class="title">
-            <div class="fr-title">DeliveBoo</div>
-            <div class="sc-title">Worst food ordering app</div>
+            <div class="fr-title">Delive<span class="color">boo</span></div>
+            <div class="sc-title color">Il gusto a portata di <span class="click">click!</span> </div>
   
         </div>
         <div class="side-menu">
           <!-- <p class="special"><span> <router-link :to="{ name: 'menu' }" class="nav-link active active-p" >Menu</router-link> </span></p> -->
             <p><span> <router-link :to="{ name: 'menu' }" class="nav-link active active-p" >menu-ristorante</router-link> </span></p>
             <p><span> <router-link :to="{ name: 'home' }" class="nav-link active active-p" >home</router-link> </span></p>
-            <p><span> <router-link :to="{ name: 'chi-siamo' }" class="nav-link active active-p" >chi siamo?</router-link> </span></p>
-            <p><span> <router-link :to="{ name: 'contatti' }" class="nav-link active active-p" >contatti</router-link> </span></p>
+            <p><span> <a href="{{ state.baseUrl }}"></a>Accedi</span></p>
+            <p><span> <a href="{{ state.baseUrl }}"></a>Registrati </span></p>
         </div>
         <div @click="openSide" :class="state.sideMenuValue ?  'burger-off' : 'burger-on'">
             <span id="s-1"></span>
@@ -48,14 +48,32 @@
               <span @click="openSide"> <router-link :to="{ name: 'home' }" class="nav-link active" >home</router-link> </span>
               <span @click="openSide"> <router-link :to="{ name: 'menu' }" class="nav-link active" >menu</router-link> </span>
 
-              <span @click="openSide"> <router-link :to="{ name: 'chi-siamo' }" class="nav-link active" >chi siamo?</router-link> </span>
-              <span @click="openSide"> <router-link :to="{ name: 'contatti' }" class="nav-link active" >contatti</router-link> </span>
+              <span @click="openSide"> <a href="{{ state.baseUrl + '/login'}}"></a>  </span>
+              <span @click="openSide"><a href=" {{ state.baseUrl + '/register' }}"></a> </span>
             </div>
         </div>
 </template>
 
 <style lang="scss" scoped>
 @use '../assets/styles/general.scss' as *;
+
+.color{
+  color: rgb(20, 20, 104);
+}
+
+.title{
+  margin-left: -180px;
+}
+
+.sc-title{
+  font-size:50px;
+  color:yellow;
+}
+
+.click:hover{
+cursor: pointer;
+color:  rgb(20, 20, 104);
+}
 .special{
   background-color: rgba(230, 18, 18, 0.225)!important;
 }
@@ -68,7 +86,7 @@
   padding: 1em;
 }
 .jumbo{
-color: $c-white;
+color: yellow;
 display: flex;
 width: 100%;
 justify-content: space-between;
@@ -91,7 +109,8 @@ font-size:13px;
 width: 230px;
 aspect-ratio: 1;
 border-radius: 4px;
-background: $c-black-op-min;
+background-color: rgb(12, 12, 60);
+opacity:90%;
 display: flex;
 gap: 5px;
 padding: .4em;
@@ -104,7 +123,7 @@ overflow: hidden;
 border-radius: 2px;
 transition: all .5s;
 background: $c-black-op-min;
-border: 1px solid white;
+border: 1px solid yellow;
 display: flex;
 justify-content: center;
 align-items: center;
