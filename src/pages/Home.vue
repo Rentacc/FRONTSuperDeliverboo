@@ -29,18 +29,19 @@ export default {
         .then (response=>{this.arrCategories=response.data.categories});
     },
     getRestaurants() {
-
-        const params = {}
-        const id = {}
-
-        if (this.selectedCategories.length > 0) {
-                params.category_id = this.selectedCategories.join(',')
-            }
-            
-
         axios.get(this.state.baseUrl + '/restaurants',{})
         .then (response=>{this.arrRestaurants=response.data.restaurants})
 },
+    getSingleRestaurant(id) {
+
+          axios.get(this.state.baseUrl + '/restaurants/'+id,{})
+          .then (response=>{this.state.arrMenu=response.data.restaurant})
+},
+    selectRestaurant(id) {
+      this.state.selectedRestaurant=id
+      console.log(this.state.selectedRestaurant)
+      this.getSingleRestaurant(id);
+    },
 
   },
 }
@@ -54,35 +55,23 @@ export default {
     </div>
   </div>
   
-<<<<<<< HEAD
+
   <div class="card-container">
-        <div class="card">
-            <h1><router-link :to="{ name: 'menu' }" class="nav-link active active-p" >Pizzeria da Carlo Trieste</router-link></h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatem rem in ex dignissimos hic, id ipsa explicabo? Cupiditate, temporibus! Illo in suscipit ex, debitis    voluptate.</p>
+        <div class="card" v-for="item in arrRestaurants" :key="item.id">
+            <h1>{{ item.activity_name }}</h1>
+            <p>{{ item.description }}</p>
+            <div class="categories">
+              <div class="category" v-for="item in item.categories">
+                {{ item.title }}
+
+              </div>
+            </div>
+            <div class="my-btn" @click="selectRestaurant(item.id)">
+              <router-link :to="{ name: 'menu' }" class="nav-link active active-p" >vai al menù</router-link>
+            </div>
          </div>
-        <div class="card"> 
-             <h1><router-link :to="{ name: 'menu' }" class="nav-link active active-p" >Mc donalds Trieste</router-link> </h1>
-             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatem rem in ex dignissimos hic, id ipsa explicabo? Cupiditate, temporibus! Illo in suscipit ex, debitis    voluptate.</p>
-            </div>
-        <div class="card">
-              <h1><router-link :to="{ name: 'menu' }" class="nav-link active active-p" >Pizzeria da Piero Trieste</router-link></h1>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatem rem in ex dignissimos hic, id ipsa explicabo? Cupiditate, temporibus! Illo in suscipit ex, debitis    voluptate.</p>
-            </div>
-        <div class="card">
-             <h1><router-link :to="{ name: 'menu' }" class="nav-link active active-p" >KFC Trieste</router-link></h1>
-             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatem rem in ex dignissimos hic, id ipsa explicabo? Cupiditate, temporibus! Illo in suscipit ex, debitis    voluptate.</p>
-          </div>
-        <div class="card">
-            <h1><router-link :to="{ name: 'menu' }" class="nav-link active active-p" >Birreria da Tony Trieste</router-link></h1>
-             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatem rem in ex dignissimos hic, id ipsa explicabo? Cupiditate, temporibus! Illo in suscipit ex, debitis    voluptate.</p>
-          </div>
-          <div class="card">
-            <h1><router-link :to="{ name: 'menu' }" class="nav-link active active-p" >Pizzeria da Massimo Trieste</router-link></h1>
-             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatem rem in ex dignissimos hic, id ipsa explicabo? Cupiditate, temporibus! Illo in suscipit ex, debitis    voluptate.</p>
-          </div>
+       
   </div>
-=======
->>>>>>> ba2adb4566f9457c3bb4b5fd0720eb5d01f330b9
   <div class="card-home">
     <h2>
     La nostra app è stata creata per offrire la comodità di ordinare cibo dalla vivace scena culinaria di Trieste direttamente a casa propria, specialmente durante la pandemia di COVID-19. Creiamo opportunità lavorative per rider e personale di supporto, semplificando l'esperienza di ordinazione e consegna con un'interfaccia user-friendly e consegne veloci, migliorando così la vita dei residenti di Trieste
@@ -106,8 +95,10 @@ export default {
 div {
   color:white;
 }
+.category {
+  color: black;
+}
 
-<<<<<<< HEAD
 .card-container{
   display: flex;
   flex-wrap: wrap;
@@ -128,26 +119,19 @@ div {
 
   }
 }
-=======
->>>>>>> ba2adb4566f9457c3bb4b5fd0720eb5d01f330b9
+
 .card-home{
   background-color: white;
   border-radius: 20px;
   opacity: 85%;
   height: 200px;
-<<<<<<< HEAD
   padding: 10px;
-  h2{
-    color: rgb(20, 20, 104);
-    margin-top: 20px;
-
-=======
-  h2{
-    color: rgb(20, 20, 104);
-    margin-top: 20px;
->>>>>>> ba2adb4566f9457c3bb4b5fd0720eb5d01f330b9
-  }
 }
+  h2{
+    color: rgb(20, 20, 104);
+    margin-top: 20px;}
+
+
  //controllare in src/assets/styles/partials/variables.scss
 
 

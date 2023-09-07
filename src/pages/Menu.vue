@@ -55,6 +55,7 @@
         let mult =  parseInt(n) * parseInt(p);
         return mult;
       },
+      
       getTotCart(){
         let total=0;
         this.arrCart.forEach(element => {
@@ -79,14 +80,19 @@
           this.arrCart.forEach(element => {
             console.log(element)
           });
+      
+        },
+        getSingleRestaurant(id) {
 
-        }
-
+        axios.get(this.state.baseUrl + '/restaurants/'+id,{})
+       .then (response=>{this.state.arrMenu=response.data.restaurant})
+      },
      // }
 
       
     },
     created(){
+      this.getSingleRestaurant(this.state.selectedRestaurant);
       
     }
   }
@@ -95,31 +101,31 @@
 <template>
 
  <div class="menu">
-  <div class="item" v-for="(item, index) in state.fakemenu[1]" :key="index">
-    <h5>{{ item.titolo }}</h5>
-    <span>€{{ item.prezzo }}</span>
+  <div class="item" v-for="(item, index) in state.arrMenu.dishes" :key="index">
+    <h5>{{ item.name }}</h5>
+    <span>€{{ item.price }}</span>
     
-    <button @click="addItemToArrCart(item.titolo, 1, totprice(1, item.prezzo), item.price)" > AGGIUNGI </button>
+    <button @click="addItemToArrCart(item.name, 1, totprice(1, item.price), item.price)" > AGGIUNGI </button>
 
   </div>
  </div>
   <!-- con contatore -->
  <div class="menu">
-  <div class="item" v-for="(item, index) in state.fakemenu[1]" :key="index">
-    <h5>{{ item.titolo }}</h5>
-    <span>€{{ item.prezzo }}</span>
-     <input class="counter" type="number" :name="item.counter" :id="item.counter+item.titolo" v-model="item.counter" >
-    <button @click="addItemToArrCart(item.titolo, item.counter, totprice(item.counter, item.prezzo), item.price)" > AGGIUNGI </button>
+  <div class="item" v-for="(item, index) in state.arrMenu.dishes" :key="index">
+    <h5>{{ item.name }}</h5>
+    <span>€{{ item.price }}</span>
+     <input class="counter" type="number" :name="item.counter" :id="item.counter+item.name" v-model="item.counter" >
+    <button @click="addItemToArrCart(item.name, item.counter, totprice(item.counter, item.price), item.price)" > AGGIUNGI </button>
 
   </div>
 
  </div>
 
 
-<div class="cart">
+<form class="cart">
   <div v-for="(item, index) in arrCart" >
     <div class="row">
-      <h3>{{ item.title }}</h3>
+      <h3 name="">{{ item.title }}</h3>
     <h4>€{{ item.totprice }}</h4>
     <span>{{ item.counter }}</span>
     <button class="mybtn" @click="deleteItemToCart(item.title, item.counter)">ELIMINA </button>
@@ -131,7 +137,7 @@
     {{getTotCart()}}
   </div>
 
-</div>
+</form>
 
  
 </template>
