@@ -48,8 +48,8 @@
               <span @click="openSide"> <router-link :to="{ name: 'home' }" class="nav-link active" >home</router-link> </span>
               <span @click="openSide"> <router-link :to="{ name: 'menu' }" class="nav-link active" >menu</router-link> </span>
 
-              <span @click="openSide"> <a href="{{ state.baseUrl + '/login'}}"></a>  </span>
-              <span @click="openSide"><a href=" {{ state.baseUrl + '/register' }}"></a> </span>
+              <span @click="openSide"> <a href="{{ state.baseUrl + '/login'}}"></a>Accedi </span>
+              <span @click="openSide"><a href=" {{ state.baseUrl + '/register' }}"></a> Registrati</span>
             </div>
         </div>
 </template>
