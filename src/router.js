@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import Home from './pages/Home.vue';
-import ChiSiamo from './pages/ChiSiamo.vue';
-import Contatti from './pages/Contatti.vue';
+import Accedi from './pages/Accedi.vue';
+import Registrati from './pages/Registrati.vue';
 import Menu from './pages/Menu.vue';
 
 
@@ -16,13 +16,13 @@ const router = createRouter({
       },
       {
         path: '/chi-siamo',
-        name: 'chi-siamo',
-        component: ChiSiamo,
+        name: 'Accedi',
+        component: Accedi,
       },
       {
         path: '/contatti',
-        name: 'contatti',
-        component: Contatti,
+        name: 'Registrati',
+        component:Registrati,
       },
       {
         path: '/menu',

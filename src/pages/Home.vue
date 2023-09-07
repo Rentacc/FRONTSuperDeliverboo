@@ -54,6 +54,7 @@ export default {
     </div>
   </div>
   
+<<<<<<< HEAD
   <div class="card-container">
         <div class="card">
             <h1><router-link :to="{ name: 'menu' }" class="nav-link active active-p" >Pizzeria da Carlo Trieste</router-link></h1>
@@ -80,6 +81,8 @@ export default {
              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatem rem in ex dignissimos hic, id ipsa explicabo? Cupiditate, temporibus! Illo in suscipit ex, debitis    voluptate.</p>
           </div>
   </div>
+=======
+>>>>>>> ba2adb4566f9457c3bb4b5fd0720eb5d01f330b9
   <div class="card-home">
     <h2>
     La nostra app è stata creata per offrire la comodità di ordinare cibo dalla vivace scena culinaria di Trieste direttamente a casa propria, specialmente durante la pandemia di COVID-19. Creiamo opportunità lavorative per rider e personale di supporto, semplificando l'esperienza di ordinazione e consegna con un'interfaccia user-friendly e consegne veloci, migliorando così la vita dei residenti di Trieste
@@ -104,6 +107,7 @@ div {
   color:white;
 }
 
+<<<<<<< HEAD
 .card-container{
   display: flex;
   flex-wrap: wrap;
@@ -124,16 +128,24 @@ div {
 
   }
 }
+=======
+>>>>>>> ba2adb4566f9457c3bb4b5fd0720eb5d01f330b9
 .card-home{
   background-color: white;
   border-radius: 20px;
   opacity: 85%;
   height: 200px;
+<<<<<<< HEAD
   padding: 10px;
   h2{
     color: rgb(20, 20, 104);
     margin-top: 20px;
 
+=======
+  h2{
+    color: rgb(20, 20, 104);
+    margin-top: 20px;
+>>>>>>> ba2adb4566f9457c3bb4b5fd0720eb5d01f330b9
   }
 }
  //controllare in src/assets/styles/partials/variables.scss

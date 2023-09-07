@@ -17,7 +17,10 @@
 
 <template>
   <div class="contatti">
-    <h1>I nostri Contatti</h1>
+    
+      <h1>I nostri Contatti</h1>
+
+    
 
 
   </div>

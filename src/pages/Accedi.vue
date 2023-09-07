@@ -15,24 +15,34 @@
 
 <template>
   <div class="about">
-    <h1>Scopo dell'applicazione</h1>
-
-   
-
+    
+    <h1>suca</h1>
 
   </div>
 </template>
 
 <style scoped lang="scss">
 @use '../assets/styles/general.scss' as *;
+
+
+
+
 .about{
   @include dfc;
   flex-direction: column;
   gap: 1em;
   padding: 1em;
   text-align: left;
+  background-color: white;
+  border-radius: 20px;
+  opacity: 85%;
+
   h1{
-    font-size: 2em;
+    font-size: 1.5em;
+    margin-bottom: 90px;
+    color: rgb(20, 20, 104);
+    text-align: center;
+    margin-top: 30px;
 
   }
   .main-about .post:nth-child(even){

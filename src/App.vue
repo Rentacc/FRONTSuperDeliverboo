@@ -24,9 +24,15 @@
 <style lang="scss">
 @use './assets/styles/general.scss' as *;
 body{
+<<<<<<< HEAD
   background-image: url('https://images-ext-2.discordapp.net/external/PnbS31NZo7yjOOQvw053-TGsDnbnXlvpi8lt6X1qPZo/%3Ft%3Dst%3D1694013029~exp%3D1694013629~hmac%3Dce5bdd887b6e5b2c3099ae44f4789861f15482a23145f44f5ed2ef9ce4a53c9c/https/img.freepik.com/free-photo/top-view-arrangement-with-notebook-pizza-boxes_23-2148247886.jpg?width=1176&height=662');
   background-repeat: no-repeat;
   background-size:cover ;
+=======
+  background-image:url('https://img.freepik.com/free-photo/top-view-arrangement-with-notebook-pizza-boxes_23-2148247886.jpg?w=996&t=st=1694013044~exp=1694013644~hmac=4a620423c6d6ff12850eec5512ccd37140026732b82891d79ecf52d372bfc1bb');
+  background-repeat: no-repeat;
+  background-size: cover;
+>>>>>>> ba2adb4566f9457c3bb4b5fd0720eb5d01f330b9
 }
 
 
