@@ -34,8 +34,8 @@
           <!-- <p class="special"><span> <router-link :to="{ name: 'menu' }" class="nav-link active active-p" >Menu</router-link> </span></p> -->
             <p><span> <router-link :to="{ name: 'menu' }" class="nav-link active active-p" >menu-ristorante</router-link> </span></p>
             <p><span> <router-link :to="{ name: 'home' }" class="nav-link active active-p" >home</router-link> </span></p>
-            <p><span> <router-link :to="{ name: 'chi-siamo' }" class="nav-link active active-p" >chi siamo?</router-link> </span></p>
-            <p><span> <router-link :to="{ name: 'contatti' }" class="nav-link active active-p" >contatti</router-link> </span></p>
+            <p><span> <router-link :to="{ name: 'chi-siamo' }" class="nav-link active active-p" >Accedi</router-link> </span></p>
+            <p><span> <router-link :to="{ name: 'contatti' }" class="nav-link active active-p" >Registrati</router-link> </span></p>
         </div>
         <div @click="openSide" :class="state.sideMenuValue ?  'burger-off' : 'burger-on'">
             <span id="s-1"></span>
