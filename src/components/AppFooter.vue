@@ -51,9 +51,6 @@
 <style lang="scss" scoped>
 @use '../assets/styles/general.scss' as *;
 
-.footer-container{
-
-}
 .on{
   display: block !important;
   opacity: .7;
@@ -99,6 +96,7 @@
   @include dfc;
   padding: 1em;
   background-color: rgb(12, 12, 60);
+  opacity: 80%;
   color: $c-white;
 }
 

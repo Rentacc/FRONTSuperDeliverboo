@@ -46,6 +46,7 @@ body{
   background-attachment: fixed;
   background-repeat: no-repeat;
   color: $c-white;
+  
 
   .small-cont{
       min-height: 85vh;
