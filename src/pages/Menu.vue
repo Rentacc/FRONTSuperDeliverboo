@@ -122,13 +122,14 @@
  </div>
 
 
-<form class="cart">
+<form method="post" action="http://127.0.0.1:8000/api/orders" class="cart">
   <div v-for="(item, index) in arrCart" >
     <div class="row">
       <h3 name="">{{ item.title }}</h3>
     <h4>€{{ item.totprice }}</h4>
+
     <span>{{ item.counter }}</span>
-    <button class="mybtn" @click="deleteItemToCart(item.title, item.counter)">ELIMINA </button>
+    <button class="mybtn" @click="deleteItemToCart(item.title, item.counter)">ELIMINA</button>
     </div>
     
   </div>
@@ -136,7 +137,16 @@
     il totale è: €
     {{getTotCart()}}
   </div>
-
+  <input name="restaurant_id" type="hidden" v-model="state.arrMenu.user.id">
+  <input name="name" type="text"> <label for="">nome</label> <br>
+  <input name="surname" type="text"> <label for="">cognome</label> <br>
+  <input name="phone" type="text"> <label for="">n.telefono</label> <br>
+  <input name="address" type="text"> <label for="">indirizzo</label> <br>
+  <input name="total_price" type="text"> <label for="">prezzo finale</label> <br>
+  <input name="time" type="text"> <label for="">orario consegna</label> <br>
+  <button class="mybtn">
+    Invio
+  </button>
 </form>
 
  
